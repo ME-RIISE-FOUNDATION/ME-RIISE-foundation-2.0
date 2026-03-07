@@ -7,9 +7,6 @@ import { MdEvent } from "react-icons/md";
 
 export default function NAINPage() {
 
-  /* ----------------------------------------------
-        ABOUT NAIN SECTION DATA
-  ------------------------------------------------*/
   const cards = [
     {
       title: "NAIN 1.0 & 1.2",
@@ -17,7 +14,9 @@ export default function NAINPage() {
         "New Age Innovation Network (NAIN) 1.0 by the ME-RIISE Foundation is a pioneering initiative designed to support budding innovators, entrepreneurs, and changemakers. At the core of NAIN 1.0 lies a commitment to fostering creativity, empowering young minds, and providing a robust platform for groundbreaking ideas to thrive.",
       icon: <FaLightbulb className="text-yellow-300 w-10 h-10" />,
       button: "NAIN 1.0 & 1.2 Events",
+      button2: "NAIN 1.0 Projects",
       link: "#",
+      link2: "#",
     },
     {
       title: "NAIN 2.0",
@@ -25,7 +24,9 @@ export default function NAINPage() {
         "New Age Innovation Network (NAIN) 2.0 by the ME-RIISE Foundation is an advanced platform designed to accelerate groundbreaking ideas with funding, mentorship, and market access. Building on the success of NAIN 1.0, this initiative fosters next-gen entrepreneurs, innovators, and changemakers.",
       icon: <FaRocket className="text-white w-10 h-10" />,
       button: "NAIN 2.0 Events",
+      button2: "NAIN 2.0 Projects",
       link: "#",
+      link2: "#",
     },
   ];
 
@@ -74,8 +75,8 @@ export default function NAINPage() {
                   {item.description}
                 </p>
 
-                {/* Button */}
-                <div className="mt-auto flex justify-center pt-4">
+                {/* Buttons Container */}
+                <div className="mt-auto flex flex-col md:flex-row justify-center items-center gap-4 pt-4">
                   <a
                     href={item.link}
                     className="flex items-center gap-2 bg-white text-blue-700 font-medium px-6 py-3 
@@ -84,6 +85,16 @@ export default function NAINPage() {
                   >
                     <MdEvent className="text-xl" />
                     {item.button}
+                  </a>
+
+                  <a
+                    href={item.link2}
+                    className="flex items-center gap-2 bg-white text-blue-700 font-medium px-6 py-3 
+                               rounded-xl shadow-md hover:bg-gray-100 transition-all 
+                               w-full md:w-auto justify-center"
+                  >
+                    <MdEvent className="text-xl" />
+                    {item.button2}
                   </a>
                 </div>
               </div>

@@ -1,9 +1,7 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
-  FileBadge,
   Handshake,
-  FileText,
   FileArchive,
   FolderOpen,
 } from "lucide-react";
@@ -11,23 +9,7 @@ import {
 const Documents: React.FC = () => {
   const navigate = useNavigate();
 
-  const navItems = [
-    {
-      label: "Certifications",
-      path: "/certifications",
-      icon: <FileBadge className="w-4 h-4" />,
-    },
-    {
-      label: "Collaborations",
-      path: "/collaborations",
-      icon: <Handshake className="w-4 h-4" />,
-    },
-    {
-      label: "NISP",
-      path: "/nisp",
-      icon: <FileText className="w-4 h-4" />,
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#020202] via-[#0a0a0a] to-black text-white px-6 md:px-20 py-12">
@@ -85,31 +67,7 @@ const Documents: React.FC = () => {
         </div>
       </div>
 
-      {/* TABS NAVIGATION */}
-      <div className="flex justify-center mt-12">
-        <nav className="bg-gray-900/60 backdrop-blur-xl border border-gray-800 rounded-2xl shadow-xl px-6 py-4">
-          <ul className="flex gap-8 text-sm md:text-base">
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-200 
-                    ${
-                      isActive
-                        ? "bg-blue-600 text-white shadow-lg scale-105"
-                        : "text-gray-300 hover:text-white hover:bg-gray-800"
-                    }`
-                  }
-                >
-                  {item.icon}
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+    
     </div>
   );
 };

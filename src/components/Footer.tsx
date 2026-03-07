@@ -2,7 +2,7 @@ import { Twitter, Facebook, Instagram, Mail, Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-black text-slate-300 font-poppins">
+    <footer className="bg-black text-slate-300 font-poppins border-t border-slate-800">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 px-4 py-16">
         
         {/* Column 1: Contact */}
@@ -38,7 +38,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar: Socials & Copyright */}
-      <div className="border-t border-slate-800">
+      <div>
         <div className="container mx-auto flex flex-col items-center gap-4 px-4 py-8">
           
           {/* Social Media Icons */}

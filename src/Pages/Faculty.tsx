@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UserCircle2 } from "lucide-react";
+// import { UserCircle2 } from "lucide-react";
 import { teamMembers } from "@/data/faculty";
 
 // ShadCN Skeleton
@@ -52,19 +52,6 @@ export default function Portfolio() {
               hover:-translate-y-1 transition-all duration-300"
           >
             {/* Floating Department Logo */}
-            <div className="absolute top-4 right-4">
-              {loading ? (
-                <Skeleton className="w-14 h-14 rounded-full" />
-              ) : member.logo ? (
-                <img
-                  src={member.logo}
-                  className="w-14 h-14 object-contain opacity-70"
-                  alt="department logo"
-                />
-              ) : (
-                <UserCircle2 className="w-14 h-14 text-gray-300" />
-              )}
-            </div>
 
             {/* Profile Image */}
             <div className="flex justify-center">
