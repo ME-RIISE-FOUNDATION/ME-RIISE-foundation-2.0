@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cmd /c \"dir E:\\\\meriisetwo\\\\src /s /b\")",
+      "PowerShell(cmd /c \"dir E:\\\\MERIISE-FOUNDATION\\\\meriise-foundation\\\\css /b && dir E:\\\\MERIISE-FOUNDATION\\\\meriise-foundation\\\\js /b\")",
+      "PowerShell(cmd /c \"dir E:\\\\meriisetwo\\\\src\\\\Pages\\\\wingsofmeriise /b && dir E:\\\\meriisetwo\\\\src\\\\Pages\\\\events /b\")",
+      "PowerShell(cmd /c \"dir E:\\\\meriisetwo\\\\src\\\\Pages\\\\wingsofmeriise /b 2>&1\")"
+    ]
+  }
+}

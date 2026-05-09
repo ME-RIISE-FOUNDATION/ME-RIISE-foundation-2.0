@@ -75,10 +75,10 @@ export default function Achievements() {
               className={`flex flex-col md:flex-row items-center gap-10 ${
                 isAlt ? "md:flex-row-reverse" : ""
               } bg-white shadow-md rounded-2xl p-6 md:p-10`}
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.3, delay: idx * 0.12 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
             >
               {/* Image */}
               <motion.img

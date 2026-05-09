@@ -9,6 +9,9 @@ lerna-debug.log*
 
 node_modules
 *.local
+!settings.local.json
+
+CLAUDE.md
 
 # Editor directories and files
 .vscode/*
