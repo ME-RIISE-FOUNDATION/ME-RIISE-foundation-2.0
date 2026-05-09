@@ -4,6 +4,18 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ── ME-RIISE Brand Palette (sourced from logo) ──────────────────────────
+   Usage in Tailwind: bg-brand-blue | text-brand-navy | border-brand-green …
+   Usage in CSS:      var(--brand-blue) | var(--brand-navy) …
+────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  --color-brand-blue:       var(--brand-blue);
+  --color-brand-navy:       var(--brand-navy);
+  --color-brand-green:      var(--brand-green);
+  --color-brand-orange:     var(--brand-orange);
+  --color-brand-blue-light: var(--brand-blue-light);
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -43,6 +55,13 @@
 }
 
 :root {
+  /* ME-RIISE Brand Colors */
+  --brand-blue:       #29ABE2;   /* sky blue  — "ME-" & "FOUNDATION" text */
+  --brand-navy:       #1B3461;   /* dark navy — "RIISE" text              */
+  --brand-green:      #43B844;   /* green     — cursor & chart arrow       */
+  --brand-orange:     #F05A28;   /* orange    — flame icon                 */
+  --brand-blue-light: #7DD3F0;   /* light blue — rocket & bulb accents     */
+
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);

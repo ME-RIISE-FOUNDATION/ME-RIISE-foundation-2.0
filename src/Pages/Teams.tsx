@@ -1,198 +1,107 @@
-// TeamPage.tsx
-import React from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { motion } from "framer-motion";
+import { TEAM_GROUPS } from "@/data/teams";
 
-// Team data
-const teamMembers = [
-  {
-    name: "Mohammed Fahad Khan",
-    role: "Executive Lead",
-    branch: "Mechanical Engg.",
-    year: "Final Year",
-    image: "/images/fahad.jpg",
-  },
-  {
-    name: "Anagha B S",
-    role: "Executive & HR Lead",
-    branch: "Computer Science Engg.",
-    year: "Final Year",
-    image: "/images/anagha.jpg",
-  },
-  {
-    name: "P Pratheeka Ganapathi",
-    role: "Executive & Digital Lead",
-    branch: "Information Science Engg.",
-    year: "Final Year",
-    image: "/images/pratheeka.jpg",
-  },
-  {
-    name: "Chaithanya S L",
-    role: "Executive & Finance Lead",
-    branch: "Electronics & Electrical Engg.",
-    year: "Final Year",
-    image: "/images/chaithanya.jpg",
-  },
-  {
-    name: "Darshan Shetty",
-    role: "Planning Lead, Marketing & UBA Lead",
-    branch: "Electronics and Instrumentation Engg.",
-    year: "Final Year",
-    image: "/images/darshan.jpg",
-  },
-  {
-    name: "Hemanth S",
-    role: "Planning, Digital & Design Lead",
-    branch: "Electronics and Instrumentation Engg.",
-    year: "Final Year",
-    image: "/images/hemanth.jpg",
-  },
-  {
-    name: "Arjun H",
-    role: "Budget and Creative Lead",
-    branch: "Civil Engg.",
-    year: "Final Year",
-    image: "/images/arjun.jpg",
-  },
-  {
-    name: "Tejaswini A S",
-    role: "Budget and Creative Lead",
-    branch: "Information Science Engg.",
-    year: "Final Year",
-    image: "/images/tejaswini.jpg",
-  },
-  {
-    name: "Harshini N D",
-    role: "Editorial Lead",
-    branch: "Computer Science Engg.",
-    year: "Final Year",
-    image: "/images/harshini.jpg",
-  },
-  {
-    name: "Rumaan Sharief N",
-    role: "Editorial Lead, Startup & Research Lead",
-    branch: "Civil Engg.",
-    year: "Final Year",
-    image: "/images/rumaan.jpg",
-  },
-  {
-    name: "Sinchana M G",
-    role: "Editorial Lead, Social Media & Broadcast Lead",
-    branch: "Electronics & Communication Engg.",
-    year: "Final Year",
-    image: "/images/sinchana.jpg",
-  },
-  {
-    name: "H G Pratheek Gowda",
-    role: "Technical Lead",
-    branch: "Computer Science Engg.",
-    year: "Final Year",
-    image: "/images/pratheek.jpg",
-  },
-  {
-    name: "Thejaswini M D",
-    role: "Technical Lead",
-    branch: "Computer Science Engg.",
-    year: "Final Year",
-    image: "/images/thejaswini.jpg",
-  },
-  {
-    name: "Prajwal Kumbar H M",
-    role: "Digital Lead",
-    branch: "Electronics & Communication Engg.",
-    year: "Final Year",
-    image: "/images/prajwal.jpg",
-  },
-  {
-    name: "Ayesha Zameer",
-    role: "Database Lead",
-    branch: "Electrical & Electronics Engg.",
-    year: "Final Year",
-    image: "/images/ayesha.jpg",
-  },
-];
-
-const TeamPage: React.FC = () => {
-  const [loading, setLoading] = React.useState(true);
-
-  // Simulated loading delay (1 sec)
-  React.useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  /* -----------------------------------------------
-     FULL PAGE SKELETON LOADING
-  -------------------------------------------------*/
-  if (loading) {
-    return (
-      <div className="p-8">
-        {/* Page Title Skeleton */}
-        <Skeleton className="h-10 w-56 mx-auto mb-8 rounded-lg" />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
-            <Card
-              key={i}
-              className="border border-gray-200 rounded-xl p-4 shadow-sm"
-            >
-              {/* Image Skeleton */}
-              <Skeleton className="w-full h-64 rounded-xl mb-4" />
-
-              {/* Name Skeleton */}
-              <Skeleton className="h-5 w-3/4 mb-2 rounded-md" />
-
-              {/* Branch Skeleton */}
-              <Skeleton className="h-4 w-1/2 mb-4 rounded-md" />
-
-              {/* Role Box Skeleton */}
-              <Skeleton className="h-10 w-full rounded-xl" />
-            </Card>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  /* -----------------------------------------------
-     ACTUAL TEAM PAGE CONTENT
-  -------------------------------------------------*/
-  return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">Meet Our Team</h1>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {teamMembers.map((member, index) => (
-          <Card
-            key={index}
-            className="transition-transform transform hover:scale-105 hover:shadow-lg border border-gray-200 rounded-xl overflow-hidden"
-          >
-            {/* Image Section */}
-            <div className="w-full h-64 overflow-hidden">
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Text Section */}
-            <CardHeader>
-              <CardTitle className="text-lg font-semibold">{member.name}</CardTitle>
-              <p className="text-sm text-muted-foreground">{member.branch}</p>
-            </CardHeader>
-
-            <CardContent className="p-4">
-              <p className="text-sm font-medium text-white bg-blue-600 rounded-2xl p-4">
-                {member.role}
-              </p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  );
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.35, delay: i * 0.04, ease: "easeOut" as const },
+  }),
 };
 
-export default TeamPage;
+export default function TeamsPage() {
+  const totalMembers = TEAM_GROUPS.reduce((acc, g) => acc + g.members.length, 0);
+
+  return (
+    <div className="min-h-screen bg-linear-to-b from-slate-50 to-white">
+
+      {/* ── Hero Header ── */}
+      <div className="relative overflow-hidden bg-linear-to-br from-slate-900 via-brand-navy to-slate-900 py-24 px-6 text-center">
+        <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-(--brand-blue)/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-(--brand-blue)/10 blur-3xl" />
+
+        <motion.p
+          className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-brand-blue-light"
+          initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+        >
+          ME-RIISE Foundation
+        </motion.p>
+        <motion.h1
+          className="text-4xl md:text-6xl font-extrabold text-white leading-tight"
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Team ME-RIISE
+        </motion.h1>
+        <motion.div
+          className="mx-auto mt-4 h-1 w-20 rounded-full bg-brand-blue"
+          initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.5, delay: 0.25 }}
+        />
+        <motion.p
+          className="mt-5 text-slate-400 text-base md:text-lg max-w-xl mx-auto"
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {totalMembers} Student Members driving innovation at Malnad College of Engineering
+        </motion.p>
+      </div>
+
+      {/* ── Year Sections ── */}
+      <div className="max-w-7xl mx-auto px-6 md:px-16 py-20 space-y-20">
+        {TEAM_GROUPS.map((group, groupIdx) => (
+          <section key={group.year}>
+            {groupIdx > 0 && <hr className="border-t border-gray-200 mb-12" />}
+
+            {/* Section header */}
+            <motion.div
+              className="mb-10 flex items-center gap-4"
+              variants={fadeUp} custom={0} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
+            >
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-brand-navy">{group.label}</h2>
+                <div className="mt-1 h-0.5 w-12 rounded-full bg-brand-blue" />
+              </div>
+              <span className="ml-auto text-sm font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+                {group.members.length} members
+              </span>
+            </motion.div>
+
+            {/* Cards grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5">
+              {group.members.map((member, idx) => (
+                <motion.div
+                  key={member.id}
+                  className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg overflow-hidden transition-shadow duration-300"
+                  variants={fadeUp} custom={idx} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
+                >
+                  {/* Photo */}
+                  <div className="overflow-hidden h-72 bg-slate-100">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      onError={(e) => {
+                        (e.currentTarget as HTMLImageElement).src = "/team_imgs/default.jpg";
+                      }}
+                    />
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-4 space-y-1">
+                    <h3 className="text-sm font-bold text-brand-navy leading-snug">{member.name}</h3>
+                    <p className="text-xs text-slate-500 leading-snug">{member.branch}</p>
+                    <span className="inline-block mt-2 text-xs font-semibold text-brand-blue bg-blue-50 px-2 py-0.5 rounded-full">
+                      Student Member
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+          </section>
+        ))}
+      </div>
+
+    </div>
+  );
+}
