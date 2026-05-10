@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { FaLightbulb, FaRocket } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { NAIN_INTRO, NAIN_INFRASTRUCTURE } from "@/data/naininfrastructure";
+import { NAIN_INTRO, NAIN_INFRASTRUCTURE } from "@/data/nain/naininfrastructure";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

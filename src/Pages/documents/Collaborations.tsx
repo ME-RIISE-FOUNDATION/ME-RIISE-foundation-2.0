@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { collaborations } from "@/data/collaborations";
+import { collaborations } from "@/data/documents/collaborations";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },

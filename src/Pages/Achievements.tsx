@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ACHIEVEMENTS } from "@/data/achievements";
+import { ACHIEVEMENTS } from "@/data/achievements/achievements";
 
 export default function Achievements() {
   const [loading, setLoading] = React.useState(true);

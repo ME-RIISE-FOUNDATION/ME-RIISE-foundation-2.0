@@ -11,8 +11,8 @@ import {
 import { Card, CardContent } from "@/components/ui/card"
 
 // Correct import
-import { slidesData } from "@/data/Carousel"
-import type { SlideData } from "@/data/Carousel"
+import { slidesData } from "@/data/carousel-main/Carousel"
+import type { SlideData } from "@/data/carousel-main/Carousel"
 
 export function HeroCarousel() {
   const plugin = React.useRef(

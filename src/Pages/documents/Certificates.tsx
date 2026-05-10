@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CERTIFICATIONS } from "@/data/certifications";
+import { CERTIFICATIONS } from "@/data/documents/certifications";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
