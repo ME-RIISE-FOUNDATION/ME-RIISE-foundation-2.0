@@ -31,22 +31,22 @@ const initiativesData: InitiativeItem[] = [
   },
   {
     id: "uba-visit",
-    imageUrl: "/uba", // Replace with actual image path
+    imageUrl: "/uba/train3.jpg", // Replace with actual image path
     title: "UBA Visit",
     description: "Discover this impactful collaboration with UBA driving growth and innovation together.",
     link: "/uba",
   },
   {
     id: "pragyatha",
-    imageUrl: "/initiatives/s14.jpg", // Replace with actual image path
+    imageUrl: "/pragyatha/Admania.jpg", // Replace with actual image path
     title: "Pragyatha",
     description: "Unlocking potential through Pragyatha's transformative strategies for success.",
     link: "/pragyatha",
   },
   {
     id: "nain-projects",
-    imageUrl: "https://placehold.co/400x250/808080/4B5563?text=Research", // Replace with actual image path
-    title: "Research Projects",
+    imageUrl: "/nain/nain1/b4.jpg", // Replace with actual image path
+    title: "NAIN Projects",
     description: "Driving cutting-edge research in various domains with industry partnerships.",
     link: "/nain/nain2-projects",
   },
