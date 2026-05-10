@@ -1,13 +1,26 @@
+// basic react imports
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 import type { LoadingBarRef } from "react-top-loading-bar";
 
+// includes the navbar and the footer
+import NavigationMenuDemo from "./components/Navbar";
+import { Footer } from "./components/Footer";
+
+// import of the basic - SEPARATE pages
 import Home from "./Pages/Home";
 import InfrastructurePage from "./Pages/Infrastructure";
 import Achievements from "./Pages/Achievements";
-import NavigationMenuDemo from "./components/Navbar";
-import { Footer } from "./components/Footer";
+import ContactUsPage from "./Pages/Contact";
+import EventsPage from "./Pages/Uba";
+import AboutUs from "./Pages/About";
+import Faculty from "./Pages/Faculty";
+import TeamPage from "./Pages/Teams";
+import MoEIICPage from "./Pages/moe-iic"
+
+
+// import of the startups page
 import { StartupsPage } from "./Pages/startups/Startups";
 import Tech10 from "./Pages/startups/Tech10";
 import TechWithKgp from "./Pages/startups/TechWithKgp";
@@ -15,6 +28,8 @@ import DevCommunity from "./Pages/startups/DevCommunity";
 import Chathurpravthan from "./Pages/startups/Chathurpravthan";
 import EduTechSphere from "./Pages/startups/EduTechSphere";
 import OpenPositions from "./Pages/TBI/Openpositions";
+
+// import of the events meriise page
 import Events from "./Pages/events/Events";
 import Event18 from "./Pages/events/Event18";
 import Event19 from "./Pages/events/Event19";
@@ -25,20 +40,23 @@ import Event23 from "./Pages/events/Event23";
 import Event24 from "./Pages/events/Event24";
 import Event25 from "./Pages/events/Event25";
 import Event26 from "./Pages/events/Event26";
+
+// import of the documents page
 import CertificationsPage from "./Pages/documents/Certificates";
 import Documents from "./Pages/documents/Documents";
 import Collaborations from "./Pages/documents/Collaborations";
 import Nisp from "./Pages/documents/Nisp";
-import Faculty from "./Pages/Faculty";
-import TeamPage from "./Pages/Teams";
-import MoEIICPage from "./Pages/moe-iic"
+
+
+// import of the NAIN pages
 import NAINPage from "./Pages/nain/Nain";
 import Nain1Page from "./Pages/nain/Nain1";
 import Nain2Page from "./Pages/nain/Nain2";
 import Nain2ProjectsPage from "./Pages/nain/Nain2Projects";
-import ContactUsPage from "./Pages/Contact";
-import EventsPage from "./Pages/Uba";
-import AboutUs from "./Pages/About";
+
+// import of the pragyatha pages.
+import Pragyatha from "./Pages/pragyatha/pragyatha-timeline";
+
 
 function App() {
   const loadingRef = useRef<LoadingBarRef | null>(null);
@@ -123,6 +141,9 @@ function App() {
 
         {/* TBI Pages */}
         <Route path="/tbi/open-positions" element={<OpenPositions />} />
+
+
+        <Route path="/pragyatha" element={<Pragyatha/>}/>
       </Routes>
 
       <Footer />

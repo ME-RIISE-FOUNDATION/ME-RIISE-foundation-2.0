@@ -24,38 +24,31 @@ interface InitiativeItem {
 const initiativesData: InitiativeItem[] = [
   {
     id: "startup",
-    imageUrl: "/initiatives/moe.png", // Replace with actual image path
+    imageUrl: "/startups/edtech5.jpeg", // Replace with actual image path
     title: "Start Ups",
     description: "Empowering innovation with cutting-edge solutions for a brighter future.",
-    link: "/initiatives/startups",
+    link: "/startups",
   },
   {
     id: "uba-visit",
-    imageUrl: "/initiatives/pragyatha.jpg", // Replace with actual image path
+    imageUrl: "/uba", // Replace with actual image path
     title: "UBA Visit",
     description: "Discover this impactful collaboration with UBA driving growth and innovation together.",
-    link: "/initiatives/uba-visit",
+    link: "/uba",
   },
   {
     id: "pragyatha",
     imageUrl: "/initiatives/s14.jpg", // Replace with actual image path
     title: "Pragyatha",
     description: "Unlocking potential through Pragyatha's transformative strategies for success.",
-    link: "/initiatives/pragyatha",
-  },
-   {
-    id: "Upcoming Events",
-    imageUrl: "/initiatives/uba.jpg", // Replace with actual image path
-    title: "Innovation Hub",
-    description: "Fostering a culture of creativity and technological advancement for students.",
-    link: "/initiatives/innovation-hub",
+    link: "/pragyatha",
   },
   {
-    id: "research-projects",
+    id: "nain-projects",
     imageUrl: "https://placehold.co/400x250/808080/4B5563?text=Research", // Replace with actual image path
     title: "Research Projects",
     description: "Driving cutting-edge research in various domains with industry partnerships.",
-    link: "/initiatives/research-projects",
+    link: "/nain/nain2-projects",
   },
 ];
 
@@ -67,12 +60,13 @@ export function Initiatives() {
     <section className="w-full bg-white py-12 md:py-16 font-poppins">
       <div className="container mx-auto px-4">
         {/* Title and Description */}
-        <div className="mb-10 text-center md:text-left">
+        <div className="mb-10">
+          <p className="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-2">What We Do</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-            Initiatives taken by <span className="text-blue-600">ME-RIISE FOUNDATION</span>
+            Initiatives by <span className="text-blue-600">ME-RIISE Foundation</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-3xl mx-auto md:mx-0">
-            ME-RIISE Foundation fosters innovation and entrepreneurship through skill development programs, startup incubation, and mentorship initiatives. It supports research and development projects, enabling students and professionals to bring their ideas to life. The foundation collaborates with industries and academic institutions to bridge the gap between education and real-world challenges. Through workshops, hackathons, and funding opportunities, ME-RIISE empowers individuals to excel in their entrepreneurial journey. Its mission is to create a sustainable ecosystem for innovation and growth.
+          <p className="mt-4 text-gray-500 max-w-3xl leading-relaxed">
+            ME-RIISE Foundation fosters innovation and entrepreneurship through skill development, startup incubation, and mentorship. We collaborate with industries and academic institutions to bridge the gap between education and real-world challenges — empowering individuals through workshops, hackathons, and funding opportunities.
           </p>
         </div>
 

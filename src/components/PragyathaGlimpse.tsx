@@ -1,5 +1,6 @@
-import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/components/ui/card" // Ensure you have shadcn Card components
-// import { AnimateOnScroll } from "./AnimateOnScroll";
+import { Link } from "react-router-dom"
+import { ArrowRight } from "lucide-react"
+import { Card, CardHeader, CardDescription, CardTitle, CardContent } from "@/components/ui/card"
 // Define a type for each event item
 interface PragyathaEvent {
   id: string;
@@ -50,42 +51,51 @@ const pragyathaEventsData: PragyathaEvent[] = [
 
 export function PragyathaEvents() {
   return (
-    <section className="w-full bg-white py-12 md:py-16 font-poppins">
-      <div className="container mx-auto">
-        {/* Title */}
-        <div className="mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Pragyatha <span className="text-gray-900">2025</span>
-          </h2>
+    <section className="w-full bg-gray-50 py-12 md:py-16 font-poppins">
+      <div className="container mx-auto px-4">
+
+        {/* Header row */}
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <p className="text-blue-600 text-sm font-semibold uppercase tracking-widest mb-1">Annual Flagship Event</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+              Pragyatha <span className="text-blue-600">'25</span>
+            </h2>
+          </div>
+          <Link
+            to="/pragyatha/2025"
+            className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors shrink-0"
+          >
+            View all events <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         {/* Events Grid */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pragyathaEventsData.map((event) => (
             <Card
               key={event.id}
-              className="w-full sm:w-[45%] lg:w-[22%] overflow-hidden rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="overflow-hidden rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 bg-white"
             >
               <img
                 src={event.imageUrl}
                 alt={event.title}
                 className="w-full h-48 object-cover"
               />
-
-              <CardHeader className="px-5">
-                <CardTitle className="text-xl font-semibold text-gray-800">
+              <CardHeader className="px-5 pt-4 pb-1">
+                <CardTitle className="text-lg font-semibold text-gray-800">
                   {event.title}
                 </CardTitle>
               </CardHeader>
-
               <CardContent className="px-5 pb-5">
-                <CardDescription className="text-sm text-gray-600">
+                <CardDescription className="text-sm text-gray-500 leading-relaxed">
                   {event.description}
                 </CardDescription>
               </CardContent>
             </Card>
           ))}
         </div>
+
       </div>
     </section>
   )

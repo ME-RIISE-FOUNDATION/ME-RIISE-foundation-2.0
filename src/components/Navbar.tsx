@@ -67,7 +67,7 @@ const Wingsofmeriise = [
   { title: "MoE-IIC", href: "/moe-iic", description: "Institutional innovation cell." },
   { title: "NAIN", href: "/nain", description: "New Age Incubation Network." },
   { title: "UBA", href: "/uba", description: "Unnat Bharat Abhiyan initiatives." },
-  { title: "RGEP" , href: "/rgep", description: "Rajiv Gandhi Entrepreneurship Program"}
+  { title: "RGEP", href: "/rgep", description: "Rajiv Gandhi Entrepreneurship Program" }
 ];
 
 // Data array for the Pragyatha dropdown
@@ -104,6 +104,9 @@ const TBI = [
 ];
 
 
+const NAV_LINK_CLASS = "flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors";
+const SECTION_HEADER_CLASS = "flex items-center gap-3 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground";
+
 export function MobileDrawer() {
   return (
     <Sheet>
@@ -112,67 +115,102 @@ export function MobileDrawer() {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="flex flex-col">
-        <SheetHeader>
-          <SheetTitle>Explore ME-RIISE Foundation</SheetTitle>
-          <SheetDescription>Explore ME-RIISE sections</SheetDescription>
+      <SheetContent side="left" className="flex flex-col w-72">
+        <SheetHeader className="text-left">
+          <SheetTitle>ME-RIISE Foundation</SheetTitle>
+          <SheetDescription>Navigate the site</SheetDescription>
         </SheetHeader>
-        <div className="flex-1 overflow-y-auto">
-          <nav className="space-y-4">
-            <Link to="/" className="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors">
-              <Home className="h-5 w-5" />
-              Home
-            </Link>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-muted-foreground">
-                <Users className="h-5 w-5" />
-                About Us
-              </div>
-              {aboutUs.map((item) => (
-                <Link key={item.title} to={item.href} className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-muted-foreground">
-                <Briefcase className="h-5 w-5" />
-                Wings of ME-RIISE
-              </div>
-              {Wingsofmeriise.map((item) => (
-                <Link key={item.title} to={item.href} className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                  {item.title}
-                </Link>
-              ))}
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-muted-foreground">
-                <Calendar className="h-5 w-5" />
-                Pragyatha
-              </div>
-              <Link to="/pragyatha" className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Pragyatha
+
+        <div className="flex-1 overflow-y-auto py-2">
+          <nav className="flex flex-col gap-1">
+
+            {/* Home */}
+            <SheetClose asChild>
+              <Link to="/" className="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors">
+                <Home className="h-4 w-4 shrink-0" />
+                Home
               </Link>
-              {pragyathaEvents.map((event) => (
-                <Link key={event.title} to={event.href} className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+            </SheetClose>
+
+            <div className="my-1 border-t" />
+
+            {/* About ME-RIISE */}
+            <div className={SECTION_HEADER_CLASS}>
+              <Users className="h-4 w-4 shrink-0" />
+              About ME-RIISE
+            </div>
+            {aboutUs.map((item) => (
+              <SheetClose asChild key={item.title}>
+                <Link to={item.href} className={NAV_LINK_CLASS}>
+                  {item.title}
+                </Link>
+              </SheetClose>
+            ))}
+
+            <div className="my-1 border-t" />
+
+            {/* Wings of ME-RIISE */}
+            <div className={SECTION_HEADER_CLASS}>
+              <Briefcase className="h-4 w-4 shrink-0" />
+              Wings of ME-RIISE
+            </div>
+            {Wingsofmeriise.map((item) => (
+              <SheetClose asChild key={item.title}>
+                <Link to={item.href} className={NAV_LINK_CLASS}>
+                  {item.title}
+                </Link>
+              </SheetClose>
+            ))}
+
+            <div className="my-1 border-t" />
+
+            {/* Pragyatha */}
+            <div className={SECTION_HEADER_CLASS}>
+              <Calendar className="h-4 w-4 shrink-0" />
+              Pragyatha
+            </div>
+            <SheetClose asChild>
+              <Link to="/pragyatha" className={NAV_LINK_CLASS}>
+                Overview
+              </Link>
+            </SheetClose>
+            {pragyathaEvents.map((event) => (
+              <SheetClose asChild key={event.title}>
+                <Link to={event.href} className={NAV_LINK_CLASS}>
                   {event.title}
                 </Link>
-              ))}
+              </SheetClose>
+            ))}
+
+            <div className="my-1 border-t" />
+
+            {/* TBI */}
+            <div className={SECTION_HEADER_CLASS}>
+              <FileText className="h-4 w-4 shrink-0" />
+              TBI
             </div>
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-muted-foreground">
-                <FileText className="h-5 w-5" />
-                TBI
-              </div>
-              {TBI.map((item) => (
-                <Link key={item.title} to={item.href} className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
+            {TBI.map((item) => (
+              <SheetClose asChild key={item.title}>
+                <Link to={item.href} className={NAV_LINK_CLASS}>
                   {item.title}
                 </Link>
-              ))}
-            </div>
+              </SheetClose>
+            ))}
+
+            <div className="my-1 border-t" />
+
+            {/* Events */}
+            <SheetClose asChild>
+              <Link to="/events" className="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors">
+                <Calendar className="h-4 w-4 shrink-0" />
+                Events
+              </Link>
+            </SheetClose>
+
           </nav>
         </div>
-        <div className="my-4 py-4 border-t px-4">
+
+        <div className="py-4 border-t px-4">
           <SheetClose asChild>
             <Button variant="outline" className="w-full">Close Menu</Button>
           </SheetClose>
@@ -213,7 +251,7 @@ export function NavigationMenuDemo() {
 
           {/* ABOUT US */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger>About MERIISE foundation</NavigationMenuTrigger>
+            <NavigationMenuTrigger>About ME-RIISE </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[550px] gap-3 p-4 grid-cols-2">
                 {aboutUs.map((item) => (
@@ -307,9 +345,9 @@ export function NavigationMenuDemo() {
         />
       </Link>
 
-        </div>
-      );
-    }
+    </div>
+  );
+}
 
 /* ----------------------------------------------------------
    FIXED LIST ITEM – works with React Router <Link> internally

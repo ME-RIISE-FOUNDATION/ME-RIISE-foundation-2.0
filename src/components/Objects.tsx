@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { Dot } from "lucide-react" // Using a simple dot icon for the list
+import { CheckCircle2 } from "lucide-react"
 
 // Define a type for the objective items
 interface ObjectiveItem {
@@ -29,47 +30,46 @@ const objectivesData: ObjectiveItem[] = [
 
 export function ObjectivesSection() {
   return (
-    <section className="w-full bg-black text-slate-200 py-16 md:py-24 font-poppins">
+    <section className="w-full bg-[#001a3a] text-slate-200 py-16 md:py-24 font-poppins">
       <div className="container mx-auto px-4">
-        {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
-          Objects
-        </h2>
 
-        {/* Main Content Grid */}
+        <div className="mb-12">
+          <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-2">What We Stand For</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            Our Objectives
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-          
-          {/* Column 1: Image */}
+
+          {/* Image */}
           <div className="w-full">
             <img
-              // Replace with your actual image path
-              src="/aboutus/ME-RIISEBuilding.png" 
+              src="/aboutus/ME-RIISEBuilding.png"
               alt="ME-RIISE Foundation Building"
-              className="rounded-xl w-full h-auto object-cover shadow-lg"
-              style={{ maxHeight: '500px' }}
+              className="rounded-2xl w-full object-cover shadow-2xl"
+              style={{ maxHeight: '480px' }}
             />
           </div>
 
-          {/* Column 2: Text Content */}
+          {/* Objectives */}
           <div className="flex flex-col justify-center">
-            {/* Objectives List */}
             <ul className="space-y-5">
               {objectivesData.map((item) => (
-                <li key={item.id} className="flex items-start gap-3">
-                  <Dot className="h-6 w-6 shrink-0 text-blue-500 mt-1" />
-                  <span className="text-base md:text-lg">
+                <li key={item.id} className="flex items-start gap-4">
+                  <CheckCircle2 className="h-5 w-5 shrink-0 text-blue-400 mt-1" />
+                  <span className="text-base md:text-lg leading-relaxed text-slate-300">
                     {item.text}
                   </span>
                 </li>
               ))}
             </ul>
 
-            {/* Button */}
-            <Button 
-              className="mt-10 self-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 px-8 rounded-lg text-base"
+            <Button
+              className="mt-10 self-start bg-blue-600 hover:bg-blue-500 text-white font-semibold py-6 px-8 rounded-xl text-base transition-colors"
               asChild
             >
-              <a href="/about">Know more about ME-RIISE Foundation</a>
+              <Link to="/aboutus">Know more about ME-RIISE Foundation</Link>
             </Button>
           </div>
 

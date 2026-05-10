@@ -1,0 +1,228 @@
+.pragyatha-page .praygatha {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+    background-color: #000;
+}
+
+.pragyatha-page .whats {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
+    background-color: #000;
+}
+
+.pragyatha-page .know {
+    transition: all ease-in .2s;
+}
+
+.pragyatha-page .know:hover {
+    background-color: rgb(228, 49, 139);
+    color: white;
+}
+
+@keyframes move1 {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes move2 {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes appear2 {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appear3 {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appear4 {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes appear5 {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(100px);
+    }
+}
+
+.pragyatha-page .timeline-content {
+    animation: appear2 5s linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+}
+
+.pragyatha-page .education {
+    padding: 100px 15px;
+    background-color: rgb(0, 0, 0);
+}
+
+.pragyatha-page .education h2 {
+    margin-bottom: 5rem;
+}
+
+.pragyatha-page .timeline-items {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.pragyatha-page .timeline-items::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    background-color: rgb(226, 28, 127);
+    left: calc((50% - 1px));
+}
+
+.pragyatha-page .timeline-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+.pragyatha-page .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.pragyatha-page .timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 50px);
+    text-align: right;
+}
+
+.pragyatha-page .timeline-item:nth-child(even) {
+    padding-left: calc(50% + 50px);
+}
+
+.pragyatha-page .timeline-dot {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    top: 10px;
+}
+
+.pragyatha-page .timeline-date {
+    font-size: 120px;
+    font-weight: 600;
+    margin: 6px 0 15px;
+    color: white;
+}
+
+.pragyatha-page .timeline-content {
+    border: 10px solid rgb(244, 42, 143);
+    padding: 20px 50px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.pragyatha-page .timeline-content h3 {
+    font-size: 50px;
+    color: white;
+    margin: 0 0 10px;
+}
+
+.pragyatha-page .timeline-content p {
+    font-weight: 300;
+    text-align: justify;
+    color: white;
+}
+
+.pragyatha-page button {
+    background-color: white;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 25px 0;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all ease-in-out .4s;
+    cursor: pointer;
+}
+
+.pragyatha-page button:focus {
+    background-color: rgb(234, 49, 142);
+}
+
+@media (max-width: 1285px) {
+    .pragyatha-page .timeline-date {
+        font-size: 66px;
+    }
+}
+
+@media (max-width: 991px) {
+    .pragyatha-page .timeline-items::before {
+        left: 7px;
+        width: 8px;
+    }
+
+    .pragyatha-page .timeline-item:nth-child(odd) {
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .pragyatha-page .timeline-item:nth-child(odd),
+    .pragyatha-page .timeline-item:nth-child(even) {
+        padding-left: 37px;
+    }
+
+    .pragyatha-page .timeline-dot {
+        left: 0;
+    }
+
+    .pragyatha-page .timeline-date {
+        font-size: 60px;
+    }
+
+    .pragyatha-page .timeline-content h3 {
+        font-size: 25px;
+        color: white;
+        margin: 0 0 10px;
+    }
+}
