@@ -15,6 +15,16 @@ import DevCommunity from "./Pages/startups/DevCommunity";
 import Chathurpravthan from "./Pages/startups/Chathurpravthan";
 import EduTechSphere from "./Pages/startups/EduTechSphere";
 import OpenPositions from "./Pages/TBI/Openpositions";
+import Events from "./Pages/events/Events";
+import Event18 from "./Pages/events/Event18";
+import Event19 from "./Pages/events/Event19";
+import Event20 from "./Pages/events/Event20";
+import Event21 from "./Pages/events/Event21";
+import Event22 from "./Pages/events/Event22";
+import Event23 from "./Pages/events/Event23";
+import Event24 from "./Pages/events/Event24";
+import Event25 from "./Pages/events/Event25";
+import Event26 from "./Pages/events/Event26";
 import CertificationsPage from "./Pages/documents/Certificates";
 import Documents from "./Pages/documents/Documents";
 import Collaborations from "./Pages/documents/Collaborations";
@@ -92,6 +102,18 @@ function App() {
         <Route path="/startups/dev-community" element={<DevCommunity />} />
         <Route path="/startups/chathurpravthan" element={<Chathurpravthan />} />
         <Route path="/startups/edutechsphere" element={<EduTechSphere />} />
+
+        {/* Events Pages */}
+        <Route path="/events" element={<Events />} />
+        <Route path="/events/2018" element={<Event18 />} />
+        <Route path="/events/2019" element={<Event19 />} />
+        <Route path="/events/2020" element={<Event20 />} />
+        <Route path="/events/2021" element={<Event21 />} />
+        <Route path="/events/2022" element={<Event22 />} />
+        <Route path="/events/2023" element={<Event23 />} />
+        <Route path="/events/2024" element={<Event24 />} />
+        <Route path="/events/2025" element={<Event25 />} />
+        <Route path="/events/2026" element={<Event26 />} />
 
         {/* TBI Pages */}
         <Route path="/tbi/open-positions" element={<OpenPositions />} />
