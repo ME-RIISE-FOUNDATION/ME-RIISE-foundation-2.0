@@ -9,6 +9,12 @@ import Achievements from "./Pages/Achievements";
 import NavigationMenuDemo from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { StartupsPage } from "./Pages/startups/Startups";
+import Tech10 from "./Pages/startups/Tech10";
+import TechWithKgp from "./Pages/startups/TechWithKgp";
+import DevCommunity from "./Pages/startups/DevCommunity";
+import Chathurpravthan from "./Pages/startups/Chathurpravthan";
+import EduTechSphere from "./Pages/startups/EduTechSphere";
+import OpenPositions from "./Pages/TBI/Openpositions";
 import CertificationsPage from "./Pages/documents/Certificates";
 import Documents from "./Pages/documents/Documents";
 import Collaborations from "./Pages/documents/Collaborations";
@@ -79,6 +85,16 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/uba" element={<EventsPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
+
+        {/* Startup Detail Pages */}
+        <Route path="/startups/tech10" element={<Tech10 />} />
+        <Route path="/startups/techwithkgp" element={<TechWithKgp />} />
+        <Route path="/startups/dev-community" element={<DevCommunity />} />
+        <Route path="/startups/chathurpravthan" element={<Chathurpravthan />} />
+        <Route path="/startups/edutechsphere" element={<EduTechSphere />} />
+
+        {/* TBI Pages */}
+        <Route path="/tbi/open-positions" element={<OpenPositions />} />
       </Routes>
 
       <Footer />

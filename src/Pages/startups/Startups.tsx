@@ -42,7 +42,7 @@ const startupsData: Startup[] = [
     id: "chathurpravthan",
     title: "Chathurpravarthan Private Limited",
     description: "Chathur Pravarthan Private Limited, established in 2022, is a remarkable success story. It originated as a start-up within the premises of Malnad College of Engineering, born out of the successful implementation of the 'Solar Panel Cleaning Robot' project.",
-    link: "/startups/chathurpravthan",
+    link: "https://pravarthan.in/",
     icon: Rocket,
   },
   {

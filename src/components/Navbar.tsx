@@ -90,21 +90,16 @@ const pragyathaEvents = [
 ];
 
 // 1. ADDED: Data array for the new Documents dropdown
-const documents = [
+const TBI = [
   {
-    title: "MCE NISP Policy",
+    title: "About TBI",
     href: "/documents/nisp-policy",
-    description: "View the MCE NISP Policy document.",
+    description: "Technology Business Incubator",
   },
   {
-    title: "Collaborations",
-    href: "/documents/collaborations",
-    description: "See our MOUs and collaborations.",
-  },
-  {
-    title: "Certifications",
-    href: "/documents/certifications",
-    description: "Explore our official certifications.",
+    title: "Open Positions",
+    href: "/TBI/open-positions",
+    description: "Check out the available open positions @TBI",
   },
 ];
 
@@ -167,9 +162,9 @@ export function MobileDrawer() {
             <div className="space-y-2">
               <div className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-muted-foreground">
                 <FileText className="h-5 w-5" />
-                Documents
+                TBI
               </div>
-              {documents.map((item) => (
+              {TBI.map((item) => (
                 <Link key={item.title} to={item.href} className="flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
                   {item.title}
                 </Link>
@@ -272,18 +267,27 @@ export function NavigationMenuDemo() {
             </NavigationMenuContent>
           </NavigationMenuItem>
 
-          {/* DOCUMENTS */}
+          {/* TBI */}
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Documents</NavigationMenuTrigger>
+            <NavigationMenuTrigger>TBI</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[300px] gap-3 p-4 md:w-[400px]">
-                {documents.map((item) => (
+                {TBI.map((item) => (
                   <ListItem key={item.title} title={item.title} href={item.href}>
                     {item.description}
                   </ListItem>
                 ))}
               </ul>
             </NavigationMenuContent>
+          </NavigationMenuItem>
+
+          {/* EVENTS */}
+          <NavigationMenuItem>
+            <NavigationMenuLink asChild>
+              <Link to="/events" className={navigationMenuTriggerStyle()}>
+                Events
+              </Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
 
         </NavigationMenuList>
