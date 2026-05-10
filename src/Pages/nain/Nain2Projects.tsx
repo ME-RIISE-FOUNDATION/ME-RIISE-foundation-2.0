@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, FileText, ExternalLink } from "lucide-react";
-import { NAIN2_PROJECTS } from "@/data/nain2projects";
+import { NAIN2_PROJECTS } from "@/data/nain/nain2projects";
 
 const container = {
   hidden: {},

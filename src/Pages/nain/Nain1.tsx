@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, CalendarDays } from "lucide-react";
-import { NAIN1_EVENTS } from "@/data/nain1";
+import { NAIN1_EVENTS } from "@/data/nain/nain1";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
