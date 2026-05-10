@@ -55,7 +55,7 @@ export default function CertificationsPage() {
             return (
               <motion.div
                 key={correctId}
-                className="bg-linear-to-br from-brand-navy to-brand-blue rounded-2xl p-6 shadow-xl hover:scale-[1.02] transition-transform duration-300"
+                className="flex flex-col bg-linear-to-br from-brand-navy to-brand-blue rounded-2xl p-6 shadow-xl hover:scale-[1.02] transition-transform duration-300"
                 variants={fadeUp} custom={index} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }}
               >
                 <div className="flex items-start justify-between">
@@ -65,7 +65,7 @@ export default function CertificationsPage() {
 
                 <h3 className="text-xl font-semibold mt-3 text-white">{item.title}</h3>
 
-                <p className="text-sm md:text-base mt-3 text-white/80 leading-relaxed">
+                <p className="flex-1 text-sm md:text-base mt-3 text-white/80 leading-relaxed">
                   {item.description}
                 </p>
 
