@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaLightbulb, FaRocket } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
+import { Link } from "react-router-dom";
 import { NAIN_INTRO, NAIN_INFRASTRUCTURE } from "@/data/naininfrastructure";
 
 const fadeUp = {
@@ -20,8 +21,8 @@ const cards = [
     icon: <FaLightbulb className="text-yellow-300 w-8 h-8" />,
     button: "NAIN 1.0 & 1.2 Events",
     button2: "NAIN 1.0 Projects",
-    link: "#",
-    link2: "#",
+    link: "/nain/nain1",
+    link2: "/nain/nain1",
     gradient: "from-brand-navy to-brand-blue",
   },
   {
@@ -31,19 +32,19 @@ const cards = [
     icon: <FaRocket className="text-brand-blue-light w-8 h-8" />,
     button: "NAIN 2.0 Events",
     button2: "NAIN 2.0 Projects",
-    link: "#",
-    link2: "#",
+    link: "/nain/nain2",
+    link2: "/nain/nain2-projects",
     gradient: "from-slate-800 to-brand-navy",
   },
   {
-    title: "NAIN 2.0",
+    title: "NAIN 2.0 Batch-2",
     description:
-      "New Age Innovation Network (NAIN) 2.0 by the ME-RIISE Foundation is an advanced platform designed to accelerate groundbreaking ideas with funding, mentorship, and market access. Building on the success of NAIN 1.0, this initiative fosters next-gen entrepreneurs, innovators, and changemakers.",
+      "NAIN 2.0 Batch-2 by the ME-RIISE Foundation continues to accelerate groundbreaking ideas with deeper funding, mentorship, and market access. This batch focuses on strengthening entrepreneur readiness and scaling next-generation innovations.",
     icon: <FaRocket className="text-brand-blue-light w-8 h-8" />,
-    button: "NAIN 2.0 Events",
-    button2: "NAIN 2.0 Projects",
-    link: "#",
-    link2: "#",
+    button: "NAIN 2.0 Batch 2 Events",
+    button2: "NAIN 2.0 Batch 2 Projects",
+    link: "/nain/nain2",
+    link2: "/nain/nain2-projects",
     gradient: "from-slate-800 to-brand-navy",
   },
 ];
@@ -153,20 +154,20 @@ export default function NAINPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 mt-auto">
-                  <a
-                    href={item.link}
+                  <Link
+                    to={item.link}
                     className="flex items-center justify-center gap-2 bg-white text-brand-navy font-semibold px-5 py-3 rounded-xl shadow hover:bg-gray-100 transition-colors duration-200 text-sm"
                   >
                     <MdEvent className="text-lg shrink-0" />
                     {item.button}
-                  </a>
-                  <a
-                    href={item.link2}
+                  </Link>
+                  <Link
+                    to={item.link2}
                     className="flex items-center justify-center gap-2 bg-white/15 border border-white/30 text-white font-semibold px-5 py-3 rounded-xl hover:bg-white/25 transition-colors duration-200 text-sm"
                   >
                     <MdEvent className="text-lg shrink-0" />
                     {item.button2}
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

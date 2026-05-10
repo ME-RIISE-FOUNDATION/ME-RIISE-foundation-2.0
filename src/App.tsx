@@ -31,8 +31,11 @@ import Collaborations from "./Pages/documents/Collaborations";
 import Nisp from "./Pages/documents/Nisp";
 import Faculty from "./Pages/Faculty";
 import TeamPage from "./Pages/Teams";
-import MoEIICPage from "./Pages/moe-iic";
-import NAINPage from "./Pages/Nain";
+import MoEIICPage from "./Pages/moe-iic"
+import NAINPage from "./Pages/nain/Nain";
+import Nain1Page from "./Pages/nain/Nain1";
+import Nain2Page from "./Pages/nain/Nain2";
+import Nain2ProjectsPage from "./Pages/nain/Nain2Projects";
 import ContactUsPage from "./Pages/Contact";
 import EventsPage from "./Pages/Uba";
 import AboutUs from "./Pages/About";
@@ -91,7 +94,10 @@ function App() {
         <Route path="/team" element={<TeamPage />} />
         <Route path="/moe-iic" element={<MoEIICPage />} />
         <Route path="/nain" element={<NAINPage />} />
-
+        <Route path="/nain/nain1" element={<Nain1Page/>}/>
+        <Route path="/nain/nain2" element={<Nain2Page/>}/>
+        <Route path="/nain/nain2-projects" element={<Nain2ProjectsPage/>}/>
+        
         <Route path="/contact" element={<ContactUsPage />} />
         <Route path="/uba" element={<EventsPage />} />
         <Route path="/aboutus" element={<AboutUs />} />
