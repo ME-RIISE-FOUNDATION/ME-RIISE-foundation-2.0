@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { Menu, Home, Users, Briefcase, FileText, Calendar } from "lucide-react"; // Add hamburger icon and navigation icons
+import { Link, useLocation } from "react-router-dom";
+import { Menu, Home, Users, Briefcase, FileText, CalendarDays, LayoutGrid, ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { useIsMobile } from "../hooks/use-mobile";
@@ -104,116 +104,147 @@ const TBI = [
 ];
 
 
-const NAV_LINK_CLASS = "flex items-center gap-3 px-8 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded-md transition-colors";
-const SECTION_HEADER_CLASS = "flex items-center gap-3 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground";
+function NavSection({ icon, label }: { icon: React.ReactNode; label: string }) {
+  return (
+    <div className="flex items-center gap-2 px-4 pt-5 pb-1">
+      <span className="text-muted-foreground">{icon}</span>
+      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+        {label}
+      </span>
+    </div>
+  );
+}
+
+function NavLink({
+  to,
+  children,
+  active,
+}: {
+  to: string;
+  children: React.ReactNode;
+  active: boolean;
+}) {
+  return (
+    <SheetClose asChild>
+      <Link
+        to={to}
+        className={cn(
+          "flex items-center justify-between px-4 py-2 mx-2 rounded-md text-sm transition-colors",
+          active
+            ? "bg-blue-50 text-blue-700 font-medium"
+            : "text-foreground/80 hover:bg-accent hover:text-accent-foreground"
+        )}
+      >
+        <span>{children}</span>
+        {active && <ChevronRight className="h-3.5 w-3.5 shrink-0 text-blue-500" />}
+      </Link>
+    </SheetClose>
+  );
+}
 
 export function MobileDrawer() {
+  const { pathname } = useLocation();
+
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon">
-          <Menu className="h-6 w-6" />
+        <Button variant="ghost" size="icon" className="h-9 w-9">
+          <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="flex flex-col w-72">
-        <SheetHeader className="text-left">
-          <SheetTitle>ME-RIISE Foundation</SheetTitle>
-          <SheetDescription>Navigate the site</SheetDescription>
+
+      <SheetContent side="left" className="flex flex-col w-[280px] p-0 gap-0">
+
+        {/* Logo header */}
+        <SheetHeader className="px-4 py-4 border-b shrink-0">
+          <SheetTitle asChild>
+            <SheetClose asChild>
+              <Link to="/" className="flex items-center">
+                <img
+                  src="logos/MERIISEmain.png"
+                  alt="ME-RIISE"
+                  className="h-8 w-auto object-contain"
+                />
+              </Link>
+            </SheetClose>
+          </SheetTitle>
+          <SheetDescription className="sr-only">Site navigation</SheetDescription>
         </SheetHeader>
 
-        <div className="flex-1 overflow-y-auto py-2">
-          <nav className="flex flex-col gap-1">
+        {/* Scrollable nav body */}
+        <div className="flex-1 overflow-y-auto pb-6">
 
-            {/* Home */}
+          {/* Home */}
+          <div className="pt-3">
             <SheetClose asChild>
-              <Link to="/" className="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors">
+              <Link
+                to="/"
+                className={cn(
+                  "flex items-center gap-3 px-4 py-2.5 mx-2 rounded-md text-sm font-medium transition-colors",
+                  pathname === "/"
+                    ? "bg-blue-50 text-blue-700"
+                    : "hover:bg-accent"
+                )}
+              >
                 <Home className="h-4 w-4 shrink-0" />
                 Home
               </Link>
             </SheetClose>
+          </div>
 
-            <div className="my-1 border-t" />
+          {/* About ME-RIISE */}
+          <NavSection icon={<Users className="h-3.5 w-3.5" />} label="About ME-RIISE" />
+          {aboutUs.map((item) => (
+            <NavLink key={item.href} to={item.href} active={pathname === item.href}>
+              {item.title}
+            </NavLink>
+          ))}
 
-            {/* About ME-RIISE */}
-            <div className={SECTION_HEADER_CLASS}>
-              <Users className="h-4 w-4 shrink-0" />
-              About ME-RIISE
-            </div>
-            {aboutUs.map((item) => (
-              <SheetClose asChild key={item.title}>
-                <Link to={item.href} className={NAV_LINK_CLASS}>
-                  {item.title}
-                </Link>
-              </SheetClose>
-            ))}
+          {/* Wings */}
+          <NavSection icon={<Briefcase className="h-3.5 w-3.5" />} label="Wings of ME-RIISE" />
+          {Wingsofmeriise.map((item) => (
+            <NavLink key={item.href} to={item.href} active={pathname === item.href}>
+              {item.title}
+            </NavLink>
+          ))}
 
-            <div className="my-1 border-t" />
+          {/* Pragyatha */}
+          <NavSection icon={<CalendarDays className="h-3.5 w-3.5" />} label="Pragyatha" />
+          <NavLink to="/pragyatha" active={pathname === "/pragyatha"}>
+            Overview
+          </NavLink>
+          {pragyathaEvents.map((event) => (
+            <NavLink key={event.href} to={event.href} active={pathname === event.href}>
+              {event.title}
+            </NavLink>
+          ))}
 
-            {/* Wings of ME-RIISE */}
-            <div className={SECTION_HEADER_CLASS}>
-              <Briefcase className="h-4 w-4 shrink-0" />
-              Wings of ME-RIISE
-            </div>
-            {Wingsofmeriise.map((item) => (
-              <SheetClose asChild key={item.title}>
-                <Link to={item.href} className={NAV_LINK_CLASS}>
-                  {item.title}
-                </Link>
-              </SheetClose>
-            ))}
+          {/* TBI */}
+          <NavSection icon={<FileText className="h-3.5 w-3.5" />} label="TBI" />
+          {TBI.map((item) => (
+            <NavLink key={item.href} to={item.href} active={pathname === item.href}>
+              {item.title}
+            </NavLink>
+          ))}
 
-            <div className="my-1 border-t" />
-
-            {/* Pragyatha */}
-            <div className={SECTION_HEADER_CLASS}>
-              <Calendar className="h-4 w-4 shrink-0" />
-              Pragyatha
-            </div>
+          {/* Events — standalone link at the bottom */}
+          <div className="mt-4 mx-2 border-t pt-4">
             <SheetClose asChild>
-              <Link to="/pragyatha" className={NAV_LINK_CLASS}>
-                Overview
-              </Link>
-            </SheetClose>
-            {pragyathaEvents.map((event) => (
-              <SheetClose asChild key={event.title}>
-                <Link to={event.href} className={NAV_LINK_CLASS}>
-                  {event.title}
-                </Link>
-              </SheetClose>
-            ))}
-
-            <div className="my-1 border-t" />
-
-            {/* TBI */}
-            <div className={SECTION_HEADER_CLASS}>
-              <FileText className="h-4 w-4 shrink-0" />
-              TBI
-            </div>
-            {TBI.map((item) => (
-              <SheetClose asChild key={item.title}>
-                <Link to={item.href} className={NAV_LINK_CLASS}>
-                  {item.title}
-                </Link>
-              </SheetClose>
-            ))}
-
-            <div className="my-1 border-t" />
-
-            {/* Events */}
-            <SheetClose asChild>
-              <Link to="/events" className="flex items-center gap-3 px-4 py-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-lg transition-colors">
-                <Calendar className="h-4 w-4 shrink-0" />
+              <Link
+                to="/events"
+                className={cn(
+                  "flex items-center gap-3 px-4 py-2.5 rounded-md text-sm font-medium transition-colors",
+                  pathname === "/events"
+                    ? "bg-blue-50 text-blue-700"
+                    : "hover:bg-accent"
+                )}
+              >
+                <LayoutGrid className="h-4 w-4 shrink-0" />
                 Events
               </Link>
             </SheetClose>
+          </div>
 
-          </nav>
-        </div>
-
-        <div className="py-4 border-t px-4">
-          <SheetClose asChild>
-            <Button variant="outline" className="w-full">Close Menu</Button>
-          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>

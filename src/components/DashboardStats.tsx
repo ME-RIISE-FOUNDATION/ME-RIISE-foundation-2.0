@@ -33,25 +33,25 @@ export default function DashboardStats() {
     }, [isInView]);
 
     return (
-        <div ref={ref} className="w-full py-16 bg-gray-50">
+        <div ref={ref} className="w-full py-10 md:py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-4xl font-bold text-gray-800 mb-2">
+                <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-800 mb-1">
                     Our Key <span className="text-blue-600">Achievements</span>
                 </h2>
-                <p className="text-center text-gray-500 mb-10">Numbers that define our impact</p>
+                <p className="text-center text-gray-500 text-sm md:text-base mb-8">Numbers that define our impact</p>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                     {statsConfig.map((item, index) => (
                         <div
                             key={index}
-                            className="p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center text-center"
+                            className="p-4 md:p-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center text-center"
                         >
-                            {item.icon}
-                            <h3 className="text-4xl font-bold text-gray-900 mt-4 tabular-nums">
+                            <div className="text-2xl md:text-4xl">{item.icon}</div>
+                            <h3 className="text-2xl md:text-4xl font-bold text-gray-900 mt-3 tabular-nums">
                                 {counts[index].toLocaleString()}
                                 {item.value >= 100 ? "+" : ""}
                             </h3>
-                            <p className="text-gray-500 mt-2 text-sm font-medium">{item.label}</p>
+                            <p className="text-gray-500 mt-1 text-xs md:text-sm font-medium leading-tight">{item.label}</p>
                         </div>
                     ))}
                 </div>

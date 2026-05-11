@@ -51,7 +51,7 @@ const pragyathaEventsData: PragyathaEvent[] = [
 
 export function PragyathaEvents() {
   return (
-    <section className="w-full bg-gray-50 py-12 md:py-16 font-poppins">
+    <section className="w-full bg-gray-50 py-10 md:py-16 font-poppins">
       <div className="container mx-auto px-4">
 
         {/* Header row */}

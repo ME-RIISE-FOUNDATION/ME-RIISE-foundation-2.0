@@ -107,9 +107,8 @@ export function Initiatives() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          {/* Carousel Navigation */}
-          <CarouselPrevious className="left-4" />
-          <CarouselNext className="right-4" />
+          <CarouselPrevious className="hidden sm:flex left-2" />
+          <CarouselNext className="hidden sm:flex right-2" />
         </Carousel>
       </div>
     </section>

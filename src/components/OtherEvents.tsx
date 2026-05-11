@@ -51,7 +51,7 @@ const tradeShowImages: GalleryImage[] = [
 
 export function TradeShow() {
   return (
-    <section className="w-full bg-white py-12 md:py-16 font-poppins">
+    <section className="w-full bg-white py-10 md:py-16 font-poppins">
       <div className="container mx-auto px-4">
         {/* Title and Description */}
         <div className="mb-10 max-w-4xl">
@@ -91,8 +91,8 @@ export function TradeShow() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4" />
-          <CarouselNext className="right-4" />
+          <CarouselPrevious className="hidden sm:flex left-2" />
+          <CarouselNext className="hidden sm:flex right-2" />
         </Carousel>
       </div>
     </section>

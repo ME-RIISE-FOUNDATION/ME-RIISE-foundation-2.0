@@ -37,17 +37,16 @@ export function HeroCarousel() {
                     
                     {/* IMAGE SLIDE */}
                     {slide.type === "image" && slide.imageUrl && (
-                      <div className="relative h-[500px] w-full overflow-hidden rounded-lg md:h-[500px]">
+                      <div className="relative h-[220px] sm:h-[360px] md:h-[500px] w-full overflow-hidden">
                         <img
                           src={slide.imageUrl}
                           alt={slide.title}
                           className="h-full w-full object-cover"
                         />
-
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                          <h3 className="text-xl font-bold md:text-3xl">{slide.title}</h3>
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent px-4 py-4 md:px-8 md:py-6 text-white">
+                          <h3 className="text-base font-bold sm:text-xl md:text-3xl leading-tight">{slide.title}</h3>
                           {slide.description && (
-                            <p className="hidden text-sm md:block text-slate-200">
+                            <p className="hidden sm:block text-xs md:text-sm text-slate-300 mt-1 max-w-2xl">
                               {slide.description}
                             </p>
                           )}
@@ -58,9 +57,9 @@ export function HeroCarousel() {
                     {/* PLACEHOLDER SLIDE */}
                     {slide.type === "placeholder" && slide.themeClasses && (
                       <div
-                        className={`flex h-[400px] w-full items-center justify-center rounded-lg md:h-[500px] ${slide.themeClasses.bg}`}
+                        className={`flex h-[220px] sm:h-[360px] md:h-[500px] w-full items-center justify-center ${slide.themeClasses.bg}`}
                       >
-                        <span className={`text-2xl font-semibold ${slide.themeClasses.text}`}>
+                        <span className={`text-xl sm:text-2xl font-semibold ${slide.themeClasses.text}`}>
                           {slide.title}
                         </span>
                       </div>
